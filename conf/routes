@@ -10,3 +10,7 @@ GET     /hello                      controllers.Application.sayHello()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
+
+GET	  /tasks								controllers.Application.tasks()
+#POST 	  /tasks								controllers.Application.newTask()
+#POST	  /tasks/:id/delete				controllers.Application.deleteTask(:id Long)

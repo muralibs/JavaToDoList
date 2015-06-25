@@ -1,5 +1,8 @@
 package controllers;
 
+import models.Task;
+import com.fasterxml.jackson.databind.JsonNode;
+import play.libs.Json;
 import play.mvc.*;
 import play.data.*;
 import static play.data.Form.*;
@@ -43,5 +46,20 @@ public class Application extends Controller {
             );
         }
     }
+  
+  
+  /**
+   * Gets the list of tasks from todo list
+   */
+  public static Result tasks() {
+    
+    /*JsonNode jsonNode = request().body().asJson();
+    if(jsonNode == null) {
+      return badRequest("Expecting Json data");
+      
+    } else {*/
+      return ok(Json.toJson(Task.all()));
+    //}
+  }
   
 }
